@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { META_BLOCKS } from './data/meta-blocks';
-import { filterNotNill } from './utils/arrays';
+import { MetaBlock } from './models/meta-block';
+import { duplicateElements, filter, map } from './utils/arrays';
 import { pipe } from './utils/base';
+import { pick } from './utils/objects';
 import { shuffleNumbers } from './utils/randomizers';
 import { log, withLog } from './utils/side-effects';
 import { upperCaseArray } from './utils/strings';
@@ -12,20 +14,21 @@ import { upperCaseArray } from './utils/strings';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'MetaBlocks';
-  metBlocks = META_BLOCKS;
-
   ngOnInit(): void {
     const shuffleWithLog = withLog(shuffleNumbers);
 
     shuffleWithLog([1,2,3,4,5,6,7,8,9,10]);
+
+    const pickName = pick<MetaBlock>('name');
     
-    const processStrings = pipe<string[]>(
-      filterNotNill,
+    const getFunnyBlocks = pipe<MetaBlock[]>(
+      filter<MetaBlock>(x => x.meta.tags?.includes('funny')),
+      map(pickName),
       upperCaseArray,
+      duplicateElements,
       log('Results:')
     );
 
-    processStrings(['test', undefined as any, 'test']);
+    getFunnyBlocks(META_BLOCKS);
   }
 }
