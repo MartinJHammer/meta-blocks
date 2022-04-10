@@ -21,7 +21,7 @@ export class AppComponent {
 
     const pickName = pick<MetaBlock>('name');
     
-    const getFunnyBlocks = pipe<MetaBlock[]>(
+    const getFunnyBlocks: (x: MetaBlock[]) => string[] = pipe(
       filter<MetaBlock>(x => x.meta.tags?.includes('funny')),
       map(pickName),
       upperCaseArray,

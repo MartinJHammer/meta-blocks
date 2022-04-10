@@ -11,7 +11,7 @@ export const throwNill = <T>(msg: string) => (x: T) =>  iff<T>(
         throw new Error(msg);
     });
 
-export const noNillElements = <T>(msg: string) => pipe<T>(
+export const noNillElements = (msg: string) => pipe(
     map(y => {
         return throwNill(msg) // message, returns if
         (y) // iff, returns if

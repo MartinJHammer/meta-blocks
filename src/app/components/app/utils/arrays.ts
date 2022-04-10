@@ -3,4 +3,4 @@ export const filter = <T>(logic: (x:T) => boolean | undefined) => (x: T[]) => x.
 export const isNill = <T>(x: T) => x === undefined || x === null;
 export const isNotNill =  <T>(x: T) => !isNill(x);
 export const filterNotNill = filter(isNotNill);
-export const duplicateElements = <T>(data: T[]): T[] => [...data, ...data];
+export const duplicateElements = <T>(x: T[]): T[] => [...x, ...x];
