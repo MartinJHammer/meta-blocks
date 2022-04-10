@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { META_BLOCKS } from './data/meta-blocks';
 import { filterNotNill } from './utils/arrays';
-import { log, pipe, withLog } from './utils/base';
+import { pipe } from './utils/base';
 import { shuffleNumbers } from './utils/randomizers';
+import { log, withLog } from './utils/side-effects';
 import { upperCaseArray } from './utils/strings';
 
 @Component({
