@@ -1,8 +1,6 @@
 import { map } from './arrays';
 import { pipe } from './base';
 
-export const copyAll = <T>(data: T[]): T[] => [...data, ...data];
-
 export const iff = <T>(condtion: () => boolean, then: <Y>() => Y | void) => (x: T) => condtion() ? then() : x;
 
 export const throwNill = <T>(msg: string) => (x: T) =>  iff<T>(

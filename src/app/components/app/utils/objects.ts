@@ -1,0 +1,1 @@
+export const pick = <T>(prop: keyof T) => (x: T) => x[prop];
