@@ -4,7 +4,7 @@ import { MetaBlock } from './models/meta-block';
 import { duplicateElements, filter, map } from './utils/arrays';
 import { pipe } from './utils/base';
 import { pick } from './utils/objects';
-import { shuffleNumbers } from './utils/randomizers';
+import { shuffleArray } from './utils/randomizers';
 import { log, withLog } from './utils/side-effects';
 import { upperCaseArray } from './utils/strings';
 
@@ -15,8 +15,7 @@ import { upperCaseArray } from './utils/strings';
 })
 export class AppComponent {
   ngOnInit(): void {
-    const shuffleWithLog = withLog(shuffleNumbers);
-
+    const shuffleWithLog = withLog(shuffleArray);
     shuffleWithLog([1,2,3,4,5,6,7,8,9,10]);
 
     const pickName = pick<MetaBlock>('name');

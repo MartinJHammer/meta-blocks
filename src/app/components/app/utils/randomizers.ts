@@ -9,9 +9,8 @@ export const shuffle = <T>(data: T[]): T[] => {
     return data;
   };
   
-  export const shuffleArray = () => pipe(
+  export const shuffleArray =  pipe(
     clone,
     shuffle
   );
   
-  export const shuffleNumbers = shuffleArray;
