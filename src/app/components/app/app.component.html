@@ -1,2 +1,47 @@
-<h1  class="text-3xl font-bold underline">Meta Blocks</h1>
+<div class="m-6">
+    <!-- META BLOCKS -->
+    <h1 class="text-3xl font-bold">Meta Blocks</h1>
+    <div *ngFor="let block of metaBlocks$ | async" class="
+        inline-block
+        my-3 mr-6
+    ">
+        <div class="
+            inline-block w-auto h-56
+            p-3
+            border-solid border-2 rounded
+            overflow-y-scroll no-scrollbar
+            shadow-md shadow-slate-700
+        ">
+            <h3 class="font-bold">{{ block.name }}</h3>
+            <p>{{ block.content }}</p>
+            <pre>{{ block.meta | json }}</pre>
+        </div>
+    </div>
 
+    <!-- PIPELINE -->
+    <h2 class="text-2xl">Pipeline</h2>
+    <div class="">
+        <!-- BLOCKS -->
+        <div class="inline-block mr-3">
+            <div class="
+                inline-block w-[300px] h-[600px]
+                p-3
+                border-solid border-2 rounded
+            ">
+            </div>
+        </div>
+
+        <!-- ABILITIES -->
+        <div class="inline-block mr-3">
+            <div class="
+                inline-block w-[300px] h-[600px]
+                p-3
+                border-solid border-2 rounded
+            ">
+            </div>
+        </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <h2 class="text-2xl">Preview</h2>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EMPTY, Observable, of } from 'rxjs';
 import { META_BLOCKS } from './data/meta-blocks';
 import { MetaBlock } from './models/meta-block';
 import { duplicateElements, filter, map } from './utils/arrays';
@@ -10,7 +11,6 @@ import { upperCaseArray } from './utils/strings';
 
 /*
   TODO: 
-  - List blocks
   - Drag/drop blocks
   - Abilities/Actions/Processes
   - Preview
@@ -25,6 +25,8 @@ import { upperCaseArray } from './utils/strings';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  metaBlocks$: Observable<MetaBlock[]> = of(META_BLOCKS);
+
   ngOnInit(): void {
     const shuffleWithLog = withLog(shuffleArray);
     shuffleWithLog([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
