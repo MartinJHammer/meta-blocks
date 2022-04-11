@@ -10,29 +10,33 @@ import { upperCaseArray } from './utils/strings';
 
 /*
   TODO: 
-  - Prettier
   - List blocks
   - Drag/drop blocks
+  - Abilities/Actions/Processes
+  - Preview
+
+  LATER:
+  - Grid
  */
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   ngOnInit(): void {
     const shuffleWithLog = withLog(shuffleArray);
-    shuffleWithLog([1,2,3,4,5,6,7,8,9,10]);
+    shuffleWithLog([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
     const pickName = pick<MetaBlock>('name');
-    
+
     const getFunnyBlocks: (x: MetaBlock[]) => string[] = pipe(
-      filter<MetaBlock>(x => x.meta.tags?.includes('funny')),
+      filter<MetaBlock>((x) => x.meta.tags?.includes('funny')),
       map(pickName),
       upperCaseArray,
       duplicateElements,
-      log('Results:')
+      log('Results:'),
     );
 
     getFunnyBlocks(META_BLOCKS);
