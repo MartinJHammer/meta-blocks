@@ -8,6 +8,13 @@ import { shuffleArray } from './utils/randomizers';
 import { log, withLog } from './utils/side-effects';
 import { upperCaseArray } from './utils/strings';
 
+/*
+  TODO: 
+  - Prettier
+  - List blocks
+  - Drag/drop blocks
+ */
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
